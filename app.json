@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "conditionsReport",
+    "slug": "conditionsReport",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
