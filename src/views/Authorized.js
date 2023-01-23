@@ -1,17 +1,15 @@
-export const ApplicationViews = () => {
-    return (
-		<Routes>
-			<Route path="/" element={
-				<>
-					<Outlet />
-				</>
-			}>
-                <Route path="crags" element={ <Explore/>} />
-    
-                <Route path="crags/:cragId" element={ <CragDetails />} />
-                <Route path="profile" element={ <Profile />} />
-				<Route path="home" element={ <Home /> } />
-			</Route>
-		</Routes>
-	)
+import { Navigate, useLocation } from "react-router-dom"
+
+export const Authorized = ({ children }) => {
+    const location = useLocation()
+
+    if (localStorage.getItem("conditions_user")) {
+        return children
+    }
+    else {
+        return <Navigate
+            to={`/login/${location.search}`}
+            replace
+            state={{ location }} />
+    }
 }
